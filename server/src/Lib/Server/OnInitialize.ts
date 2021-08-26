@@ -29,6 +29,11 @@ export function onInitialize(params: InitializeParams): InitializeResult {
       // Code Actions
       codeActionProvider: true,
 
+      // Tell the client that this server supports color providers
+      colorProvider: {
+        documentSelector: [{ pattern: "*.particle.json" }],
+      },
+
       codeLensProvider: {
         resolveProvider: false,
         workDoneProgress: false,

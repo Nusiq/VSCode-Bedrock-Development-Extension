@@ -15,6 +15,7 @@ import { OnDidCreateFilesAsync, OnDidDeleteFilesAsync, OnDidRenameFilesAsync, On
 import { Documentable } from "../../Types/Minecraft/Interfaces/Documentable";
 import { OnCodeActionAsync, OnCodeActionResolveAsync } from "../../CodeAction/OnRequest";
 import { OnCodeLensRequestAsync } from "../../CodeLens/OnRequest";
+import { OnColorRequestAsync } from "../../Color/OnRequest";
 
 /**
  * Setup the server events
@@ -31,6 +32,9 @@ export function setEvents() {
 
   // This handler provides commands
   Connection.onExecuteCommand(OnCommandRequestAsync);
+
+  // This handler provides color
+  Connection.onColorPresentation(OnColorRequestAsync);
 
   // This handler provides code actions
   Connection.onCodeAction(OnCodeActionAsync);
